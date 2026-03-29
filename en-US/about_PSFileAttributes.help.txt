@@ -1,0 +1,52 @@
+TOPIC
+    about_PSFileAttributes
+
+SHORT DESCRIPTION
+    Explains how to use the PSFileAttributes module.
+
+LONG DESCRIPTION
+    The PSFileAttributes module provides commands for viewing and modifying
+    Windows file attributes with a custom enum named AllFileAttributes.
+
+    Exported commands:
+      - Get-AllFileAttributes
+      - Get-ActiveFileAttributes
+      - Get-FileAttributes
+      - Set-FileAttributes
+      - Add-FileAttribute
+      - Remove-FileAttribute
+
+    These commands support paths to files and folders. Some commands accept
+    wildcard paths through -Path.
+
+VIEWING ATTRIBUTES
+    Use Get-FileAttributes for normal usage.
+
+        Get-FileAttributes -Path C:\temp\example.txt
+
+    Use -ShowAll to display every known attribute flag and whether it is set.
+
+        Get-FileAttributes -Path C:\temp\example.txt -ShowAll
+
+CHANGING ATTRIBUTES
+    Replace all attributes:
+
+        Set-FileAttributes -Path C:\temp\example.txt -Attributes ReadOnly, Hidden
+
+    Add one or more flags:
+
+        Add-FileAttribute -Path C:\temp\example.txt -Attribute Hidden
+
+    Remove one or more flags:
+
+        Remove-FileAttribute -Path C:\temp\example.txt -Attribute Hidden
+
+NOTES
+    - Set-FileAttributes replaces the full attribute value.
+    - Add-FileAttribute and Remove-FileAttribute preserve unspecified flags.
+
+RELATED TOPICS
+    Get-Help Get-FileAttributes
+    Get-Help Set-FileAttributes
+    Get-Help Add-FileAttribute
+    Get-Help Remove-FileAttribute

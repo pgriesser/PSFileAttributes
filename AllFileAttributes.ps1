@@ -1,0 +1,34 @@
+[Flags()] enum AllFileAttributes {
+    ReadOnly            = 0x00000001
+    Hidden              = 0x00000002
+    System              = 0x00000004
+    VolumeId            = 0x00000008 # Not defined, old DOS value
+    Directory           = 0x00000010
+    Archive             = 0x00000020
+    Device              = 0x00000040
+    Normal              = 0x00000080
+    Temporary           = 0x00000100
+    SparseFile          = 0x00000200
+    ReparsePoint        = 0x00000400
+    Compressed          = 0x00000800
+    Offline             = 0x00001000
+    NotContentIndexed   = 0x00002000
+    Encrypted           = 0x00004000
+    IntegrityStream     = 0x00008000
+    Virtual             = 0x00010000 # not in [System.IO.FileAttributes]
+    NoScrubData         = 0x00020000 # everything below this line is not in [System.IO.FileAttributes]:
+    RecallOnOpen        = 0x00040000 # FILE_ATTRIBUTE_RECALL_ON_OPEN (for dir enum classes) |---| FILE_ATTRIBUTE_EA (file/dir with Extended Attributes, but constant is for "internal use")
+    Pinned              = 0x00080000 # FILE_ATTRIBUTE_PINNED
+    Unpinned            = 0x00100000 # FILE_ATTRIBUTE_UNPINNED |---| FILE_FLAG_OPEN_NO_RECALL
+    OpenReparsePoint    = 0x00200000 # FILE_FLAG_OPEN_REPARSE_POINT
+    RecallOnDataAccess  = 0x00400000 # FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS
+    SessionAware        = 0x00800000 # FILE_FLAG_SESSION_AWARE
+    PosixSemantics      = 0x01000000 # FILE_FLAG_POSIX_SEMANTICS
+    BackupSemantics     = 0x02000000 # FILE_FLAG_BACKUP_SEMANTICS
+    DeleteOnClose       = 0x04000000 # [System.IO.FileOptions]::DeleteOnClose / FILE_FLAG_DELETE_ON_CLOSE
+    SequentialScan      = 0x08000000 # [System.IO.FileOptions]::SequentialScan / FILE_FLAG_SEQUENTIAL_SCAN
+    RandomAccess        = 0x10000000 # [System.IO.FileOptions]::RandomAccess / FILE_FLAG_RANDOM_ACCESS
+    NoBuffering         = 0x20000000 # FILE_FLAG_NO_BUFFERING
+    Asynchronous        = 0x40000000 # [System.IO.FileOptions]::Asynchronous / FILE_FLAG_OVERLAPPED (opened or created for async IO)
+    WriteThrough        = 0x80000000 # [System.IO.FileOptions]::WriteThrough / FILE_FLAG_WRITE_THROUGH
+}
